@@ -24,7 +24,7 @@ export default function TextEditor() {
     const {id: documentId} = useParams()
 
     useEffect(() => {
-        const s = io("http://localhost:5000")
+        const s = io("https://google-docs-backend-3l6d.onrender.com")
         setSocket(s)
 
         return () => {
