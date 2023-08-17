@@ -9,6 +9,14 @@ body {
     margin: 0;
 }
 
+.ql-snow .ql-picker.ql-size .ql-picker-item::before {
+    content: attr(data-value) !important;
+}
+
+.ql-snow .ql-picker.ql-size .ql-picker-label::before {
+    content: attr(data-value) !important;
+}
+
 .container .ql-editor {
     width: 8.5in;
     min-height: 11in;
@@ -29,11 +37,18 @@ body {
     display: flex;
     justify-content: center;
     position: sticky;
-    top: 0;
+    top: 50px;
     z-index: 1;
     background-color: #f3f3f3;
     border: none;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+}
+
+.show {
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 2;
 }
 
 @page {
@@ -56,6 +71,10 @@ body {
     }
 
     .container .ql-toolbar.ql-snow {
+        display: none;
+    }
+
+    .button {
         display: none;
     }
 }
