@@ -35,7 +35,7 @@ export default function TextEditor() {
     const [socket, setSocket] = useState()
     const [quill, setQuill] = useState()
     const {id: documentId} = useParams()
-    var [title, setTitle] = useState("Untitled1")
+    const [title, setTitle] = useState("Untitled1")
 
     useEffect(() => {
         const s = io("http://localhost:5000/")
@@ -167,11 +167,10 @@ export default function TextEditor() {
             }
         
         const handleCopy = () =>{
-            // copy("http://localhost:3000/documents/"+documentId);
             navigator.clipboard.writeText("http://localhost:3000/documents/"+documentId)
         }
 
-    }, [documentId, title])
+    }, [documentId])
 
     return (
         <>
@@ -181,7 +180,13 @@ export default function TextEditor() {
                 type="text"
                 style={{width:500,
                     height:30,
-                    fontSize:20}}
+                    fontSize:20,
+                    borderRadius:40,
+                    padding:10,
+                    border:"true",
+                    borderWidth:1,
+                    borderColor:"#CECECE",
+                }}
                 value={title}
                 onChange={(e) => {console.log(e.target.value);setTitle(e.target.value)}}
             />
